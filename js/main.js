@@ -23,7 +23,7 @@ function validateBookfn(bookMark) {
 
 // validateUrl
 function validateUrlfn(url) {
-  return /^[a-zA-z0-9]+\.[a-zA-z0-9]{2,}$/.test(url.value);
+  return /^(https:\/\/)?[a-zA-z0-9]+(\.[a-zA-z0-9]{2,})+$/.test(url.value);
 }
 
 // general function to add success box
@@ -147,11 +147,18 @@ function existUrl(nameVal) {
 function displayUrls() {
   var allRows = ``;
   for (let i = 0; i < allUrls.length; i++) {
-    allRows += `
+    
+    // check on site Url starts with https:// or not
+    let siteUrl = allUrls[i].siteUrl;
+    if (!siteUrl.startsWith("https://")) {
+      siteUrl = "https://".concat(siteUrl);
+    }
+
+      allRows += `
             <tr>
-              <td>${i+1}</td>
+              <td>${i + 1}</td>
               <td>${allUrls[i].siteName}</td>
-              <td><a href="https://${allUrls[i].siteUrl}" class="visit-link"><i class="fa-solid fa-eye pe-2"></i>visit</a></td>
+              <td><a href="${siteUrl}" class="visit-link"><i class="fa-solid fa-eye pe-2"></i>visit</a></td>
               <td><button onclick="deleteUrl(${i})" class="delete-btn btn btn-danger text-capitalize"><i class="fa-solid fa-trash-can"></i>
                   delete</button></td>
             </tr>`;
