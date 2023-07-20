@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bookmark</title>
+    <link rel="shortcut icon" href="./images/bookmark.png" type="image/x-icon">
+    <link href="css/all.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet">
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- fixed popup -->
+
+    <header class="container text-center py-5">
+      <div class="title">
+        <p class="text-center">bookmarker</p>
+      </div>
+    </header>
+    <section id="info">
+      <div class="container pt-5 pb-2">
+        <p class="title text-center">
+          <span class="icon"><i class="fa-solid fa-bookmark"></i></span>
+          <span class="text">Bookmark your favorite sites</span>
+          <span class="icon"><i class="fa-solid fa-bookmark"></i></span>
+        </p>
+        <div id="siteNameBox" class="form-group my-3">
+          <label for="siteName" class="text-capitalize"><i class="fa-solid fa-book-bookmark pe-2"></i> site
+            name</label>
+          <section class="input-custom form-control my-2 d-flex justify-content-between align-items-center">
+            <input type="text" class="w-100" placeholder="Bookmark Name" id="siteName" oninput="validateBookMark(this)">
+            <div id="error-icon-1" class="icon-error border border-1 border-danger rounded-circle px-2 h-50 d-none">
+              <i class="fa-solid fa-exclamation fa-s text-danger d-inline-block"></i>
+            </div>
+            <div id="success-icon-1" class="icon-success d-none">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </section>
+        </div>
+        <div id="siteUrlBox" class="form-group my-3">
+          <label for="siteUrl" class="text-capitalize "><i class="fa-solid fa-link pe-2"></i> Site URL</label>
+          <section class="input-custom form-control my-2 d-flex justify-content-between align-items-center">
+            <input type="text" class="w-100" placeholder="Website URL" id="siteUrl" oninput="validateUrl(this)">
+            <div id="error-icon-2" class="icon-error border border-1 border-danger rounded-circle px-2 h-50 d-none">
+              <i class="fa-solid fa-exclamation fa-s text-danger d-inline-block"></i>
+            </div>
+            <div id="success-icon-2" class="icon-success d-none">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </section>
+        </div>
+        <div class="form-group my-3 d-flex justify-content-center">
+          <button id="submitBtn" class="btn btn-red-subtle px-5 py-2 text-capitalize " data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop" onclick="addUrl(this)">submit</button>
+        </div>
+        <!-- Modal -->
+        <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="colors">
+                  <div class="color-red"></div>
+                  <div class="color-orange"></div>
+                  <div class="color-green"></div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p class="popup-title">
+                  Site Name or Url is not valid, Please follow the rules below :
+                </p>
+                <div class="elem">
+                  <i class="fa-regular fa-circle-right p-2 text-danger"></i>
+                  <span>Site name must contain at least 3 characters</span>
+                </div>
+                <div class="elem">
+                  <i class="fa-regular fa-circle-right p-2 text-danger"></i>
+                  <span>Site URL must be a valid one</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="dataView">
+      <div class="container">
+        <table class="table table-light text-center my-3">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Website Name</th>
+              <th>Visit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="urlView">
+            
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+
+</html>

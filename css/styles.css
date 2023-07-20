@@ -1,0 +1,203 @@
+:root {
+  --font-head-1: 'Pacifico', cursive;
+  --font-head-2: 'PT Sans Caption', sans-serif;
+  --font-head-3: 'Bree Serif', serif;
+  --main-font: 'Righteous', cursive;
+  --main-color: #fec260
+}
+
+::selection {
+  background-color: var(--main-color);
+}
+
+body {
+  background-color: #f7ecde;
+}
+
+.btn-red-subtle {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #bb4120;
+  --bs-btn-border-color: #bb4120;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #bb2d3b;
+  --bs-btn-hover-border-color: #b02a37;
+  --bs-btn-focus-shadow-rgb: 225, 83, 97;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #b02a37;
+  --bs-btn-active-border-color: #a52834;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #bb4120;
+  --bs-btn-disabled-border-color: #bb4120;
+}
+
+/* start header */
+header {
+  border-bottom: 2px dotted;
+}
+
+header .title {
+  width: fit-content;
+  margin-inline: auto;
+  position: relative;
+}
+
+header .title p::after {
+  content: "";
+  position: absolute;
+  background-color: var(--main-color);
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  height: 20%;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+header .title:hover p::after {
+  height: 50%;
+  transition: 0.5s;
+}
+
+header .title p {
+  font-family: var(--font-head-1);
+  font-weight: 400;
+  font-size: 50px;
+  text-transform: capitalize;
+}
+
+/* end header */
+/* start info section */
+#info .container {
+  border-bottom: 2px dotted;
+}
+
+#info .container p.title {
+  background: linear-gradient(to right, rgb(63, 166, 92), rgba(63, 166, 92, 0.9), rgba(63, 166, 92, 0.85), rgba(177, 172, 73, 0.85), rgba(177, 172, 73, 0.9), rgb(177, 172, 73));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 25px;
+}
+
+#info .form-group label {
+  font-family: var(--font-head-2);
+  font-weight: 600;
+}
+
+#info .form-group .input-custom input {
+  border: unset !important;
+  outline: 0;
+}
+
+#info .form-group .input-custom input:focus {
+  border: unset !important;
+  outline: 0;
+}
+
+#info .form-group .input-custom {
+  font-family: var(--font-head-2);
+}
+
+#info .form-group .input-custom:has(input:focus) {
+  border: 1px solid var(--main-color) !important;
+  box-shadow: 0 0 0 0.25rem rgba(254, 194, 96, 0.25);
+}
+
+/*error class box*/
+#info .box-error .input-custom:has(input) {
+  border: 1px solid red !important;
+}
+#info .box-error .input-custom:has(input:focus) {
+  border: 1px solid red !important;
+  box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+}
+
+/* success class box */
+#info .box-success .input-custom:has(input) {
+  border: 1px solid green !important;
+}
+#info .box-success .input-custom:has(input:focus) {
+  border: 1px solid green !important;
+  box-shadow: 0 0 0 0.25rem rgba(0, 255, 0, 0.25);
+}
+
+
+#info .form-group button {
+  font-family: var(--font-head-2);
+  font-weight: 400;
+}
+
+#info .modal .colors {
+  display: flex;
+  gap: 10px;
+}
+
+#info .modal .colors .color-red {
+  width: 18px;
+  height: 18px;
+  background-color: red;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
+#info .modal .modal-body .popup-title {
+  font-family: var(--font-head-3);
+  font-weight: 400;
+  font-size: 21px;
+}
+
+#info .modal .modal-body .elem {
+  font-family: var(--font-head-2);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+#info .modal .colors .color-orange {
+  width: 18px;
+  height: 18px;
+  background-color: orange;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
+#info .modal .colors .color-green {
+  width: 18px;
+  height: 18px;
+  background-color: green;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
+/* end info section */
+/* start data view */
+#dataView table thead th {
+  font-family: var(--font-head-2);
+  font-weight: 600;
+}
+
+#dataView tr td {
+  vertical-align: middle;
+  font-family: var(--font-head-2);
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+#dataView tr td .visit-link {
+  text-decoration: none;
+  display: inline-block;
+  background-color: rgba(138, 158, 35, 0.85);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+#dataView tr td .visit-link:hover {
+  background-color: rgba(138, 158, 35, 1);
+}
+
+/* end data view */
