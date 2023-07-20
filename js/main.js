@@ -34,9 +34,8 @@ function addSuccessBox(box) {
 
 // general function to add error box
 function addErrorBox(box) {
+  if (box.classList.contains("box-success")) box.classList.remove("box-success");
   if (!box.classList.contains("box-error")) box.classList.add("box-error");
-  if (box.classList.contains("box-success"))
-    box.classList.remove("box-success");
 }
 
 function defaultBox(box, successIcon) {
@@ -111,19 +110,37 @@ function addUrl() {
       siteName: siteName.value,
       siteUrl: siteUrl.value,
     };
-    // push url to array
-    allUrls.push(url);
+    if (!existUrl(url.siteName)) {
+      // push url to array
+      allUrls.push(url);
 
-    // update urls in localStorege
-    localStorage.setItem("localUrls", JSON.stringify(allUrls));
+      // update urls in localStorege
+      localStorage.setItem("localUrls", JSON.stringify(allUrls));
 
-    // show all urls after adding new
-    displayUrls();
+      // show all urls after adding new
+      displayUrls();
 
-    clearInputs();
-    defaultBox(siteNameBox, successIcon1);
-    defaultBox(siteUrlBox, successIcon2);
+      clearInputs();
+
+      defaultBox(siteNameBox, successIcon1);
+      defaultBox(siteUrlBox, successIcon2);
+    } else {
+      document.getElementById("error-repeat").classList.remove("d-none");
+      setTimeout(() => {
+        document.getElementById("error-repeat").classList.add("d-none");
+      }, 5000);
+    }
+  } 
+}
+
+// check that url exist
+function existUrl(nameVal) {
+  for (let i = 0; i < allUrls.length; i++) {
+    if(nameVal == allUrls[i].siteName) {
+      return true;
+    }
   }
+  return false;
 }
 
 // display urls

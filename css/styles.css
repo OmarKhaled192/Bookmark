@@ -71,7 +71,10 @@ header .title p {
 #info .container {
   border-bottom: 2px dotted;
 }
-
+#info #error-repeat {
+  font-family: var(--font-head-3) ;
+  font-weight: 400;
+}
 #info .container p.title {
   background: linear-gradient(to right, rgb(63, 166, 92), rgba(63, 166, 92, 0.9), rgba(63, 166, 92, 0.85), rgba(177, 172, 73, 0.85), rgba(177, 172, 73, 0.9), rgb(177, 172, 73));
   background-clip: text;
